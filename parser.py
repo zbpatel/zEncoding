@@ -1,3 +1,5 @@
+# Written by Zac Patel on 7/12/17
+
 # only supports ascii at the moment, but could be expanded later to support
 # other encoding types
 def readFile(filepath):
@@ -8,7 +10,7 @@ def readFile(filepath):
     frequency = [0 for i in range(radix)]
 
     # counter for how many characters we missed
-    #num_errs = 0
+    num_errs = 0
 
     # using a long for loop rather than a list comprehension / map of ord() to
     # avoid needing two copies of the file in memory
@@ -25,7 +27,7 @@ def readFile(filepath):
     return file_str, frequency
 
 def testParser():
-    file_str, freq = readFile("mobydick.txt")
+    file_str, freq = readFile("docs\mobydick.txt")
 
     #print("Read: " + str(len(file_str)) + " chars from mobydick.txt")
 
@@ -33,4 +35,6 @@ def testParser():
     for i in range(128):
         if freq[i] > 0:
             freq_str = freq_str + "\'" + chr(i) + "\': " + str(freq[i]) + ", "
-    #print(freq_str)
+    print(freq_str)
+
+testParser()
